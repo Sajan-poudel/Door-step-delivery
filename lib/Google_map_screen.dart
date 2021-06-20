@@ -11,6 +11,7 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import './credentials/credentials.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import './firstpage.dart';
 
 class GoogleMapScreen extends StatefulWidget {
   const GoogleMapScreen({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
           markers[markerId] = marker;
           _controller.animateCamera(
             CameraUpdate.newCameraPosition(
-              CameraPosition(target: this._center, zoom: 11.0),
+              CameraPosition(target: this._center, zoom: 5.0),
             ),
           );
         });
@@ -171,6 +172,14 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
     setState(() {});
   }
 
+  void copytoClipboard() {
+    Clipboard.setData(ClipboardData(text: "${this.secure_key}"));
+    Fluttertoast.showToast(
+      msg: "Key copied to ClipBoard",
+      backgroundColor: Colors.green.shade600,
+    );
+  }
+
   void update_to_firestore(String secure_key) {
     firestoreInstance.collection("delivery").doc(secure_key).set({
       "home_address": GeoPoint(_center.latitude, _center.longitude),
@@ -180,6 +189,13 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
       Fluttertoast.showToast(
         msg: "your delivery request have been sent",
         backgroundColor: Colors.green.shade600,
+      );
+
+      Navigator.pushReplacement<void, void>(
+        context,
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const FirstPage(),
+        ),
       );
     });
   }
@@ -299,8 +315,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
                                             ),
                                             ElevatedButton(
                                               onPressed: () {
-                                                Clipboard.setData(ClipboardData(
-                                                    text: "${secure_key}"));
+                                                copytoClipboard();
                                               },
                                               child: Text(
                                                 "copy \nsecure_key",

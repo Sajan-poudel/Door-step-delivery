@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:icefire/Google_map_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import './firstpage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -94,7 +95,7 @@ class _MyappState extends State<MyApp> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => GoogleMapScreen()),
+                    MaterialPageRoute(builder: (context) => FirstPage()),
                   );
                 },
               ),
