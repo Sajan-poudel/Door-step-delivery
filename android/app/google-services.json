@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "469433599963",
+    "project_id": "mapsforflutter-1569735944610",
+    "storage_bucket": "mapsforflutter-1569735944610.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469433599963:android:a83b911c680e0314a2c9fe",
+        "android_client_info": {
+          "package_name": "com.example.icefire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469433599963-5c4i9dmjcd6ss4o4k1k9jm47a33ku132.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFs5W2dDz4Nke4LTay0NSm2U8ZKIvDkjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469433599963-5c4i9dmjcd6ss4o4k1k9jm47a33ku132.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
